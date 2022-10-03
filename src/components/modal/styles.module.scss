@@ -1,0 +1,20 @@
+.modalBackground {
+  background-color: rgba(#4b4b4b, 0.85);
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 110; // needs to be over 100 to be in front of paypal buttons on deposit page
+  overflow: auto;
+  padding: 2rem;
+}
+
+.modalWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  margin: auto;
+}

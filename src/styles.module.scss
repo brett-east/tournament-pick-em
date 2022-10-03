@@ -1,0 +1,21 @@
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+  height: 100vh;
+  width: 100%;
+}
+
+.lobbyCol {
+  background-color: rgb(196, 157, 200);
+  height: 100%;
+  // width: 100%;
+  padding: 2rem;
+}
+
+.reviewCol {
+  background-color: rgb(178, 143, 143);
+  height: 100%;
+  // width: 100%;
+  padding: 2rem;
+}
