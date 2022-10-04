@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SelectedPick, Tournament } from '../../App';
 import { HandleCloseModal, useModal } from '../modal';
 import Pick, { Player } from '../pick';
+import TournamentModal from '../tournament-modal';
+import TournamentTile from '../tournament-tile';
 
 import styles from './styles.module.scss';
 
@@ -27,13 +29,24 @@ const ReviewSection = (props: ReviewSectionProps) => {
   });
   const openModal = useModal();
 
+
   const onSubmit = () => {
-    console.log('opening');
-
     openModal(({ handleCloseModal }: HandleCloseModal) => (
-      <div>
+      <TournamentModal
+        tournaments={tournaments}
+        eligibleTournaments={eligibleTournaments}
+        forEntering
+      />
+    ));
+  };
 
-      </div>
+  const onTournamentView = () => {
+    openModal(({ handleCloseModal }: HandleCloseModal) => (
+      <TournamentModal
+        tournaments={tournaments}
+        eligibleTournaments={eligibleTournaments}
+        forEntering={false}
+      />
     ));
   };
 
@@ -48,20 +61,13 @@ const ReviewSection = (props: ReviewSectionProps) => {
         >
           Submit
         </button>
-      </div>
-      <div className={styles.tournamentsList}>
-        Eligible tournaments
-        {eligibleTournaments.length > 0 ? (
-          eligibleTournaments.map((tourney) => {
-            return (
-              <div>
-                {tourney.name}
-              </div>
-            );
-          })
-        ) : (
-          <p>No eligible tournaments</p>
-        )}
+        <button
+          className={styles.submitButton}
+          onClick={onTournamentView} // open modal and show eligible tournaments
+          disabled={eligibleTournaments.length <= 0}
+        >
+          View all tournaments
+        </button>
       </div>
       <div className={styles.selectedPlayersList}>
         {selectedPicks.map((sP) => {
@@ -69,6 +75,7 @@ const ReviewSection = (props: ReviewSectionProps) => {
           if (player) {
             return (
               <Pick
+                key={player.id}
                 player={players.find(player => player.id === sP.id) as Player}
                 onClick={handleClick}
                 selectedPicks={selectedPicks}

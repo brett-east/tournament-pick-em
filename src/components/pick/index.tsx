@@ -36,8 +36,6 @@ const Pick = (props: PickProps) => {
         <p>{player.statName}{' '}{player.statValue}</p>
         <div className={styles.selections}>
           {Object.keys(player.selections).map((key) => {
-            console.log();
-
             return (
               <button
                 key={player.selections[key]}

@@ -1,0 +1,30 @@
+.tournamentModal {
+  border: 1px solid black;
+  background-color: #eee;
+  max-height: 90vh;
+  overflow: auto;
+  width: 500px;
+  position: relative;
+}
+
+.tileSection {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalSubmitButton {
+  padding: .5rem;
+  background-color: orange;
+}
+
+.submitSlipRow {
+  border: 1px solid grey;
+  padding: .5rem;
+  position: sticky;
+  background-color: #eee;
+  bottom: 0;
+  p {
+    margin-bottom: .25rem;
+  }
+}

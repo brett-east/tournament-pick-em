@@ -45,6 +45,7 @@ const App = () => {
       <div className={styles.lobbyCol}>
         {mockPlayers.map(player => (
           <Pick
+            key={player.id}
             player={player}
             onClick={handleClick}
             selectedPicks={selectedPicks}
@@ -74,7 +75,7 @@ const mockPlayers: Player[] = [{
   id: 'abc',
   name: 'Player A',
   statName: 'Passing yards',
-  statValue: '10.5',
+  statValue: '210.5',
   selections: {
     higher: '1',
     lower: '2',
@@ -85,8 +86,8 @@ const mockPlayers: Player[] = [{
 }, {
   id: 'def',
   name: 'Player B',
-  statName: 'Passing yards',
-  statValue: '10.5',
+  statName: 'Rushing yards',
+  statValue: '22.5',
   selections: {
     higher: '1',
     lower: '2',
@@ -97,8 +98,8 @@ const mockPlayers: Player[] = [{
 }, {
   id: 'ghi',
   name: 'Player C',
-  statName: 'Passing yards',
-  statValue: '10.5',
+  statName: 'Interceptions',
+  statValue: '0.5',
   selections: {
     higher: '1',
     lower: '2',
@@ -109,8 +110,8 @@ const mockPlayers: Player[] = [{
 },{
   id: 'jkl',
   name: 'Player D',
-  statName: 'Passing yards',
-  statValue: '10.5',
+  statName: 'Pitches',
+  statValue: '89.5',
   selections: {
     higher: '1',
     lower: '2',
@@ -121,8 +122,8 @@ const mockPlayers: Player[] = [{
 }, {
   id: 'mno',
   name: 'Player E',
-  statName: 'Passing yards',
-  statValue: '10.5',
+  statName: 'Birdies or better',
+  statValue: '3.5',
   selections: {
     higher: '1',
     lower: '2',
@@ -134,7 +135,7 @@ const mockPlayers: Player[] = [{
   id: 'pqr',
   name: 'Player F',
   statName: 'Passing yards',
-  statValue: '10.5',
+  statValue: '330.5',
   selections: {
     higher: '1',
     lower: '2',
@@ -145,41 +146,53 @@ const mockPlayers: Player[] = [{
 }];
 
 export interface Tournament {
+  id: string;
   name: string;
   entryFee: number;
   startTime: string;
   endTime: string;
   maxEntries: number;
+  currentEntries: number;
 }
 
 const mockTournaments: Tournament[] = [{
+  id: '123',
   name: 'Pick\'em Champions',
   entryFee: 10,
   startTime: '2022-09-28T13:30:00Z',
   endTime: '2022-10-06T13:30:00Z',
   maxEntries: 4,
+  currentEntries: 12,
 }, {
+  id: '1234',
   name: 'small tourney',
   entryFee: 1,
   startTime: '2022-09-28T13:30:00Z',
   endTime: '2022-10-06T13:30:00Z',
   maxEntries: 110,
+  currentEntries: 12,
 }, {
+  id: '1235',
   name: 'big tourney',
   entryFee: 100,
   startTime: '2022-09-28T13:30:00Z',
   endTime: '2022-10-06T13:30:00Z',
   maxEntries: 1,
+  currentEntries: 12,
 }, {
+  id: '1236',
   name: 'max one entry',
   entryFee: 25,
   startTime: '2022-09-28T13:30:00Z',
   endTime: '2022-10-06T13:30:00Z',
   maxEntries: 4,
+  currentEntries: 12,
 }, {
+  id: '1237',
   name: 'short date',
   entryFee: 10,
   startTime: '2022-09-28T13:30:00Z',
   endTime: '2022-10-01T13:30:00Z',
   maxEntries: 5,
+  currentEntries: 12,
 }];
